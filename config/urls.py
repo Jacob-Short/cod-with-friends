@@ -16,6 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from accounts import views as account_views
+from api import views as api_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -24,4 +25,5 @@ urlpatterns = [
     path('login/', account_views.LoginView.as_view(), name='login'),
     path('signup/', account_views.SignUpView.as_view(), name='signup'),
     path('logout/', account_views.logout_view, name='logout'),
+    path('leaderboards/', api_views.SearchLeaderboards.as_view(), name='leaderboards'),
 ]

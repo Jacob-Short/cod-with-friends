@@ -17,7 +17,7 @@ class RootView(View):
 
 class IndexView(View):
     '''homepage'''
-    
+
     def get(self, request):
         template_name = "index.html"
         context = {}
