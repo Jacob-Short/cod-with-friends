@@ -3,7 +3,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login, logout
 from django.views.generic import View
 from accounts.forms import LoginForm, SignupForm
-from accounts.models import Soldier
+from soldier.models import Soldier
 
 class RootView(View):
     '''root view when not logged in'''
@@ -50,13 +50,14 @@ class LoginView(View):
                 return redirect('/homepage/')
 
 
-class SignUpView(View):
+class RegisterView(View):
     '''create a new user'''
 
     def get(self, request):
         template_name = "generic_form.html"
         form = SignupForm()
-        return render(request, template_name, {"form": form, "header": "Signup"})
+        context = {"form": form, "header": "Signup"}
+        return render(request, template_name, context)
 
     
     def post(self, request):

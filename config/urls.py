@@ -23,7 +23,7 @@ urlpatterns = [
     path('', account_views.RootView.as_view(), name='root'),
     path('homepage/', account_views.IndexView.as_view(), name='homepage'),
     path('login/', account_views.LoginView.as_view(), name='login'),
-    path('signup/', account_views.SignUpView.as_view(), name='signup'),
+    path('signup/', account_views.RegisterView.as_view(), name='signup'),
     path('logout/', account_views.logout_view, name='logout'),
     path('leaderboards/', api_views.SearchLeaderboards.as_view(), name='leaderboards'),
 ]
