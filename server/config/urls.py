@@ -18,12 +18,18 @@ from django.urls import path
 from accounts import views as account_views
 from api import views as api_views
 
+# client paths
+from cwf_api.urls import url_patterns as cwf_api_urlpatterns
+
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', account_views.RootView.as_view(), name='root'),
-    path('homepage/', account_views.IndexView.as_view(), name='homepage'),
-    path('login/', account_views.LoginView.as_view(), name='login'),
-    path('signup/', account_views.RegisterView.as_view(), name='signup'),
-    path('logout/', account_views.logout_view, name='logout'),
+    # server index
+    path('', account_views.ServerRootView.as_view(), name='root'),
+    path('login/', account_views.LoginView.as_view(), name='server-login'),
+    path('register/', account_views.RegisterView.as_view(), name='server-register'),
+    # back end displaying leaderbaords
     path('leaderboards/', api_views.SearchLeaderboards.as_view(), name='leaderboards'),
 ]
+
+# client paths
+urlpatterns += cwf_api_urlpatterns
