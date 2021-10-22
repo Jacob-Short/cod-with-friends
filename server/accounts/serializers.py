@@ -15,6 +15,7 @@ class UserAccountSerializer(HyperlinkedModelSerializer):
             'first_name',
             'last_name',
             'picture',
+            'email',
             'bio',
             'display_name',
         ]
@@ -27,7 +28,7 @@ class CreateUserAccountSerializer(APIView):
         fields = [
             'first_name',
             'last_name',
-            'picture',
+            'email',
             'bio',
             'display_name',
         ]

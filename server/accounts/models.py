@@ -19,6 +19,7 @@ class UserAccount(AbstractUser):
     first_name = models.CharField(max_length=50)
     last_name = models.CharField(max_length=50)
     picture = models.ImageField(upload_to='images/', max_length=100, default='images/download.png')
+    email = models.EmailField()
     bio = models.TextField()
     display_name = models.CharField(max_length=50)
     date_joined = models.DateTimeField(default=timezone.now)
